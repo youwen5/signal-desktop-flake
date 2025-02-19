@@ -61,7 +61,7 @@ let
 
   pname = "signal-desktop";
   dir = "Signal";
-  version = "0.42.0";
+  version = "7.42.0";
   hash = "sha256-DdxRC9QCT5+9rMxGlIBofrTxF7o6L1dvFO5SS3EKj5Q=";
   url = "https://download.copr.fedorainfracloud.org/results/useidel/signal-desktop/fedora-42-aarch64/08650608-signal-desktop/signal-desktop-7.42.0-1.fc42.aarch64.rpm";
 
