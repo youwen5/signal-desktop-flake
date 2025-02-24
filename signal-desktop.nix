@@ -4,8 +4,7 @@
   fetchurl,
   autoPatchelfHook,
   noto-fonts-color-emoji,
-  rpm,
-  cpio,
+  libarchive,
   asar,
   rsync,
   python3,
@@ -61,9 +60,9 @@ let
 
   pname = "signal-desktop";
   dir = "Signal";
-  version = "7.42.0";
-  hash = "sha256-DdxRC9QCT5+9rMxGlIBofrTxF7o6L1dvFO5SS3EKj5Q=";
-  url = "https://download.copr.fedorainfracloud.org/results/useidel/signal-desktop/fedora-42-aarch64/08650608-signal-desktop/signal-desktop-7.42.0-1.fc42.aarch64.rpm";
+  version = "7.43.0-1";
+  hash = "sha256-aWTVKbnH4cu5PI+T6vl6ssE9+B0XBqilmTMjCEVOFrA=";
+  url = "https://download.copr.fedorainfracloud.org/results/useidel/signal-desktop/fedora-42-aarch64/08673520-signal-desktop/signal-desktop-${version}.fc42.aarch64.rpm";
 
   copy-noto-emoji = fetchurl {
     url = "https://raw.githubusercontent.com/NixOS/nixpkgs/aa57d29b009db388be5ed5f69bd8b379358a0169/pkgs/by-name/si/signal-desktop/copy-noto-emoji.py";
@@ -107,8 +106,7 @@ stdenv.mkDerivation rec {
     recursiveHash = true;
     downloadToTemp = true;
     nativeBuildInputs = [
-      rpm
-      cpio
+      libarchive
       asar
     ];
     # Signal ships the Apple emoji set without a licence via an npm
@@ -126,8 +124,7 @@ stdenv.mkDerivation rec {
     # main derivation.
     postFetch = ''
       mkdir -p $out
-      cd $out
-      rpm2cpio $downloadedFile | cpio -i --make-directories
+      bsdtar -xf "$downloadedFile" -C "$out"
 
       asar extract "$out/usr/lib64/${pname}/resources/app.asar" $out/asar-contents
       rm -r \
