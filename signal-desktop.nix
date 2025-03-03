@@ -60,8 +60,8 @@ let
 
   pname = "signal-desktop";
   dir = "Signal";
-  version = "7.43.0-1";
-  hash = "sha256-aWTVKbnH4cu5PI+T6vl6ssE9+B0XBqilmTMjCEVOFrA=";
+  version = "7.44.0-2";
+  hash = "";
   url = "https://download.copr.fedorainfracloud.org/results/useidel/signal-desktop/fedora-42-aarch64/08673520-signal-desktop/signal-desktop-${version}.fc42.aarch64.rpm";
 
   copy-noto-emoji = fetchurl {
