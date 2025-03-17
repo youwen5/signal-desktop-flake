@@ -242,9 +242,9 @@ stdenv.mkDerivation rec {
 
   preFixup = ''
     gappsWrapperArgs+=(
-      --add-flags "${
-        if electronPageSizeFix then ''--js-flags="--no-decommit-pooled-pages "'' else " "
-      }\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}"
+      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}} ${
+        if electronPageSizeFix then ''--js-flags="--no-decommit-pooled-pages"'' else ""
+      }"
       --suffix PATH : ${lib.makeBinPath [ xdg-utils ]}
     )
 
