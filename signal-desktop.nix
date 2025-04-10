@@ -60,9 +60,9 @@ let
 
   pname = "signal-desktop";
   dir = "Signal";
-  version = "7.44.0-2";
-  hash = "sha256-+vETg+hKpwxsN+LiFa9YSLwqa+VWqaReNtSTw/GVpn0=";
-  url = "https://download.copr.fedorainfracloud.org/results/useidel/signal-desktop/fedora-42-aarch64/08710716-signal-desktop/signal-desktop-${version}.fc42.aarch64.rpm";
+  version = "7.49.0-1";
+  hash = "";
+  url = "https://download.copr.fedorainfracloud.org/results/useidel/signal-desktop/fedora-42-aarch64/08854703-signal-desktop/signal-desktop-${version}.fc42.aarch64.rpm";
 
   copy-noto-emoji = fetchurl {
     url = "https://raw.githubusercontent.com/NixOS/nixpkgs/aa57d29b009db388be5ed5f69bd8b379358a0169/pkgs/by-name/si/signal-desktop/copy-noto-emoji.py";
