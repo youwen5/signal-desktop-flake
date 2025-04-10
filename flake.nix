@@ -21,11 +21,7 @@
           pkgs = import nixpkgs { inherit system; };
         in
         {
-          signal-desktop =
-            if pkgs.stdenv.targetPlatform.isAarch then
-              pkgs.callPackage ./signal-desktop.nix { }
-            else
-              pkgs.signal-desktop;
+          signal-desktop = pkgs.signal-desktop;
           default = self.packages.${system}.signal-desktop;
         }
       );
