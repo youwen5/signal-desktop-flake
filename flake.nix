@@ -21,7 +21,7 @@
           pkgs = import nixpkgs { inherit system; };
         in
         {
-          signal-desktop = pkgs.signal-desktop;
+          signal-desktop = builtins.warn "signal-desktop-flake: this repository has been quasi-archived since signal-desktop in nixpkgs has been updated. This flake will not be updated unless Signal in upstream nixpkgs goes critically out-of-date again. Please switch back to signal-desktop in nixpkgs." pkgs.signal-desktop;
           default = self.packages.${system}.signal-desktop;
         }
       );
